@@ -3,10 +3,10 @@ import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
-  const [convertedAmount, setConvertedAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState("");
 
   const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
@@ -29,7 +29,7 @@ function App() {
       }}
     >
       <div className="w-full">
-        <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
+        <div className="w-full max-w-md mx-auto p-10 border border-gray-60 rounded-lg backdrop-blur-sm bg-white/30 flex justify-center items-center gap-4 relative top-60">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -61,7 +61,7 @@ function App() {
                 amount={convertedAmount}
                 currencyOptions={options}
                 onCurrencyChange={(currency) => setTo(currency)}
-                selectCurrency={from}
+                selectCurrency={to}
                 amountDisable
               />
             </div>
