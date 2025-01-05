@@ -20,7 +20,7 @@ function Login() {
         onChange={(e) => 
             setUsername(e.target.value)
         } />
-        {"  "}
+        {"   "}
         <input className="p-1 border-white" type="text"
         value={password}
         placeholder='password'
