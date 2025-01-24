@@ -35,6 +35,13 @@ function TextForm(props) {
       alert("Failed to copy" + error);
     })
   }
+
+  const handleExtraSpace = () => {
+    console.log("Extra Space was removed");
+    let newText = text.split(/[ ]+/);
+    setText(newText.join());
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="font-bold text-3xl mb-4">{props.heading}</h1>
@@ -70,6 +77,13 @@ function TextForm(props) {
         onClick={handleCopyText}
       >
         Copy
+      </button>
+      
+      <button
+        className="text-sm text-white bg-blue-500 p-2 rounded-xl mx-2"
+        onClick={handleExtraSpace}
+      >
+        Remove Extra Space
       </button>
       <div className="container my-3">
         <h2 className="font-semibold">Your Text Summary</h2>
