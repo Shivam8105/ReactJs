@@ -18,6 +18,23 @@ function TextForm(props) {
     console.log("onChange was clicked");
     setText(e.target.value);
   };
+
+  const handleClearClick = () => {
+    console.log("On clear was clicked");
+    let newText = '';
+    setText(newText);
+  };
+
+  const handleCopyText = () => {
+    console.log('Text Was Copied');
+    navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Text Was Copied")
+    })
+    .catch((error) => {
+      alert("Failed to copy" + error);
+    })
+  }
   return (
     <div className="container mx-auto p-4">
       <h1 className="font-bold text-3xl mb-4">{props.heading}</h1>
@@ -41,6 +58,18 @@ function TextForm(props) {
         onClick={handleLowClick}
       >
         Convert to LowerCase
+      </button>
+      <button
+        className="text-sm text-white bg-blue-500 p-2 rounded-xl mx-2"
+        onClick={handleClearClick}
+      >
+        Clear Text
+      </button>
+      <button
+        className="text-sm text-white bg-blue-500 p-2 rounded-xl mx-2"
+        onClick={handleCopyText}
+      >
+        Copy
       </button>
       <div className="container my-3">
         <h2 className="font-semibold">Your Text Summary</h2>
